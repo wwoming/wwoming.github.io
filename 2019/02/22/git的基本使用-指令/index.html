@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>git的基本使用(指令) | zhuming</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="git的使用 - 版本控制 1.代码托管平台github.comgitee.comcoding.net">
+<meta name="keywords" content="gitbash上的各种类型环境及指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git的基本使用(指令)">
+<meta property="og:url" content="http://wwoming.github.io/2019/02/22/git的基本使用-指令/index.html">
+<meta property="og:site_name" content="zhuming">
+<meta property="og:description" content="git的使用 - 版本控制 1.代码托管平台github.comgitee.comcoding.net">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://wwoming.github.io/2019/02/22/git的基本使用-指令/git的基本使用-指令/git本地仓库和远程仓库.png">
+<meta property="og:updated_time" content="2019-02-23T01:13:58.316Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git的基本使用(指令)">
+<meta name="twitter:description" content="git的使用 - 版本控制 1.代码托管平台github.comgitee.comcoding.net">
+<meta name="twitter:image" content="http://wwoming.github.io/2019/02/22/git的基本使用-指令/git的基本使用-指令/git本地仓库和远程仓库.png">
+  
+    <link rel="alternate" href="/atom.xml" title="zhuming" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhuming</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wwoming.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-git的基本使用-指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/22/git的基本使用-指令/" class="article-date">
+  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">2019-02-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git的基本使用(指令)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>git的使用 - 版本控制</p>
+<p>1.代码托管平台<br>github.com<br>gitee.com<br>coding.net</p>
+<a id="more"></a>
+<p>2.git命令<br>基本指令<br>git init   ——  新建git仓库<br>git add 文件/文件夹  ——  将文件添加到缓存区中<br>git add  -A    ——  将工作区中的所有内容都提交</p>
+<p>git stutas ———    查看git状态<br>git commit -m  ‘提交信息’  ——  将缓存区中的内容全部提交到git本地仓库中<br>git commit -a -m ‘清空’</p>
+<p>git log   ——-    查看提交日志</p>
+<p>git reset  - - hard   HEAD——   让工作目录中的内容和仓库中的内容保持一致<br>git reset  –hard HEAD^   ——  回到上一个版本<br>git  reset  - - hard 版本号  ——  回到指定的版本</p>
+<p>git checkout    文件名   ——  从暂存区中恢复工作目录中的内容(让工作区中的指定文件，回到上次提交的时候的状态), 不能通过-A来恢复所有文件/</p>
+<p><img src="git的基本使用-指令/git本地仓库和远程仓库.png" alt></p>
+<p>1.没有本地仓库只有远程仓库(刚到公司，手头没有公司项目需要从公司的gitlab或者其他远程仓库上克隆到本地)</p>
+<p>先cd到你打算放项目的目录下<br>git clone <url>  - 将服务器上的项目(仓库)克隆</url></p>
+<p>2.本地有项目，并且已经更新过版本。需要关联远程仓库</p>
+<p>先在代码托管平台创建空的远程仓库(不要自动创建README)</p>
+<p>cd到本地仓库，执行： git remote add origin 仓库地址</p>
+<p>//注意: 让本地已有的仓库和远程仓库关联的时候，远程仓库创建的时候不能添加README文件(创建空的仓库)<br>git remote add origin 地址              关联远程仓库(只需要关联一次)<br>git push [-u] origin master  - 提交  (-u在第一次提交分之的时候才用)</p>
+<p>//如果创建远程仓库的时候仓库中有默认文件<br>git pull   —rebase origin master</p>
+<p> 分之管理：</p>
+<p>a.创建仓库会默认给我们创建一个master分之,这个分之一般作为提交和发布分之</p>
+<p>b.开发一般会自己创建一个develop分之，用来开发和测试</p>
+<p>c.多人协作的时候还可能根据不同的人或者(不同的功能)创建不同的分之，用来独立开发</p>
+<p>常见分之： master, develop, 功能/人员分之</p>
+<p>git branch [-a]           - 查看分之<br>git branch 分之名        - 创建分之<br>git checkout   分支名        -   切换分之<br>git checkout -b 分之名            - 切换并创建新的分之</p>
+<p>git diff    分之1  分之2        - 查看两个分之之间的差异</p>
+<p>git merge 分之名                - 让当前分之和指定分之进行合并  (让当前分之拥有指定分之的内容)</p>
+<p>注意: 切换分之、push、pull，这些操作前要保证工作区是clean</p>
+<p>练习：创建一个开发分之(develop),然后在创建两个开发者分之zhangsan和lisi;<br>         然后在zhangsan的分之上添加一个文件夹(aaa)，文件夹中有一个文件(文件不能为空)<br>         在lisi的分之上添加一个图片<br>         最后将zhangsan和lisi分之都合并到develop中；然后再将develop合并到master上</p>
+<p>怎么避免冲突：  不要发生多个分之对同一个文件在同一个版本下进行修改(和同伴确认和商量)</p>
+<p>ssh地址的使用</p>
+<p>配置全局的用户信息(windows)</p>
+<p>git  global  config user.name  “yuting”<br>git  global  config user.email    “<a href="mailto:yuting@163.com" target="_blank" rel="noopener">yuting@163.com</a>”</p>
+<p>//git bash</p>
+<p>git config –global user.name ‘yuting’</p>
+<p>git config –global user.email  ‘<a href="mailto:yuting@163.com" target="_blank" rel="noopener">yuting@163.com</a>’</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wwoming.github.io/2019/02/22/git的基本使用-指令/" data-id="cjsgvgxmc000394visxcomawd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gitbash上的各种类型环境及指令/">gitbash上的各种类型环境及指令</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/22/Nginx服务器安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Nginx服务器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/22/vim编辑器之神/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vim编辑器之神</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash上的各种类型环境及指令/">gitbash上的各种类型环境及指令</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/gitbash上的各种类型环境及指令/" style="font-size: 10px;">gitbash上的各种类型环境及指令</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/22/Linux指令系统/">Linux指令系统</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/22/MySQL配置/">MySQL配置</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/22/Nginx服务器安装/">Nginx服务器</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/22/git的基本使用-指令/">git的基本使用(指令)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 zhuming<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

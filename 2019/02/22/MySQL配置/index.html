@@ -5,18 +5,20 @@
   
 
   
-  <title>Archives: 2019/2 | zhuming</title>
+  <title>MySQL配置 | zhuming</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一个博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhuming">
-<meta property="og:url" content="http://wwoming.github.io/archives/2019/02/index.html">
+  <meta name="description" content="MySQL配置    下载MySQL源安装包: wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm    安装MySQL源: yum localinstall mysql57-community-release-el7-8.noarch.rpm">
+<meta name="keywords" content="gitbash上的各种类型环境及指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL配置">
+<meta property="og:url" content="http://wwoming.github.io/2019/02/22/MySQL配置/index.html">
 <meta property="og:site_name" content="zhuming">
-<meta property="og:description" content="第一个博客">
+<meta property="og:description" content="MySQL配置    下载MySQL源安装包: wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm    安装MySQL源: yum localinstall mysql57-community-release-el7-8.noarch.rpm">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-22T13:37:00.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhuming">
-<meta name="twitter:description" content="第一个博客">
+<meta name="twitter:title" content="MySQL配置">
+<meta name="twitter:description" content="MySQL配置    下载MySQL源安装包: wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm    安装MySQL源: yum localinstall mysql57-community-release-el7-8.noarch.rpm">
   
     <link rel="alternate" href="/atom.xml" title="zhuming" type="application/atom+xml">
   
@@ -63,154 +65,88 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/23/hello-world/" class="archive-article-date">
-  <time datetime="2019-02-23T02:06:58.575Z" itemprop="datePublished">Feb 23</time>
+        <section id="main"><article id="post-MySQL配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/22/MySQL配置/" class="article-date">
+  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">2019-02-22</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/23/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL配置
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/Linux指令系统/" class="archive-article-date">
-  <time datetime="2019-02-22T09:21:22.000Z" itemprop="datePublished">Feb 22</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/Linux指令系统/">Linux指令系统</a>
-    </h1>
-  
+        <p>MySQL配置  </p>
+<ol>
+<li><p>下载MySQL源安装包: <code>wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</code>  </p>
+</li>
+<li><p>安装MySQL源: <code>yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></p>
+</li>
+</ol>
+<a id="more"></a>
+<ol start="3">
+<li><p>安装MySQL:  <code>yum install mysql-community-server</code>  </p>
+</li>
+<li><p>设置开启启动MySQL服务: <code>systemctl enable mysqld</code>  </p>
+</li>
+<li>启动/重启MySQL服务：systemctl restart mysqld  </li>
+<li>查看MySQL初始密码：grep ‘A temporary password’ /var/log/mysqld.log  </li>
+<li>更改MySQL密码：mysqladmin -u root -p’旧密码’ password ‘新密码’<br>这里更改密码出了问题，更改失败，这是因为密码太过简单的原因。有两个接解决方法：</li>
+</ol>
+<p>　　　　方法一：把密码设置复杂点（这是最直接的方法）</p>
+<p>　　　　方法二：关闭mysql密码强度验证(validate_password)</p>
+<p>　　　　　　　　编辑配置文件：<code>vim /etc/my.cnf</code>， 增加这么一行validate_password=off</p>
+<p>　　　　　　　　编辑后重启mysql服务：<code>systemctl restart mysqld</code>  
+　　　　　　　　  
+　　　　　　　　  </p>
+<ol start="8">
+<li>设置mysql能够远程访问:<br>a. 登录进MySQL:  <code>mysql -uroot -p密码</code><br> b. 增加一个用户给予访问权限: <code>grant all privileges on *.* to &#39;root&#39;@&#39;ip地址&#39; identified by &#39;密码&#39; with grant option;</code><br> c. 刷新权限：<code>flush privileges;­</code>  </li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/MySQL配置/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/MySQL配置/">MySQL配置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/Nginx服务器安装/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wwoming.github.io/2019/02/22/MySQL配置/" data-id="cjsgvgxls000094vib4erlqhf" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/Nginx服务器安装/">Nginx服务器</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/git的基本使用-指令/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/git的基本使用-指令/">git的基本使用(指令)</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gitbash上的各种类型环境及指令/">gitbash上的各种类型环境及指令</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/vim编辑器之神/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/vim编辑器之神/">vim编辑器之神</a>
-    </h1>
+    <a href="/2019/02/22/Linux指令系统/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux指令系统
+        
+      </div>
+    </a>
   
+  
+    <a href="/2019/02/22/Nginx服务器安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Nginx服务器</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/配置python环境/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/配置python环境/">配置python环境</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         

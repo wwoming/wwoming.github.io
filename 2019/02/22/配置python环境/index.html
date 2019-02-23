@@ -5,18 +5,20 @@
   
 
   
-  <title>Archives: 2019/2 | zhuming</title>
+  <title>配置python环境 | zhuming</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一个博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhuming">
-<meta property="og:url" content="http://wwoming.github.io/archives/2019/02/index.html">
+  <meta name="description" content="[root@iZwz97tbgo9lkabnat2lo8Z ~]# yum install gcc[root@iZwz97tbgo9lkabnat2lo8Z ~]# wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz">
+<meta name="keywords" content="gitbash上的各种类型环境及指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置python环境">
+<meta property="og:url" content="http://wwoming.github.io/2019/02/22/配置python环境/index.html">
 <meta property="og:site_name" content="zhuming">
-<meta property="og:description" content="第一个博客">
+<meta property="og:description" content="[root@iZwz97tbgo9lkabnat2lo8Z ~]# yum install gcc[root@iZwz97tbgo9lkabnat2lo8Z ~]# wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-22T13:38:13.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhuming">
-<meta name="twitter:description" content="第一个博客">
+<meta name="twitter:title" content="配置python环境">
+<meta name="twitter:description" content="[root@iZwz97tbgo9lkabnat2lo8Z ~]# yum install gcc[root@iZwz97tbgo9lkabnat2lo8Z ~]# wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz">
   
     <link rel="alternate" href="/atom.xml" title="zhuming" type="application/atom+xml">
   
@@ -63,154 +65,60 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/23/hello-world/" class="archive-article-date">
-  <time datetime="2019-02-23T02:06:58.575Z" itemprop="datePublished">Feb 23</time>
+        <section id="main"><article id="post-配置python环境" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/22/配置python环境/" class="article-date">
+  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">2019-02-22</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/23/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      配置python环境
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/Linux指令系统/" class="archive-article-date">
-  <time datetime="2019-02-22T09:21:22.000Z" itemprop="datePublished">Feb 22</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/Linux指令系统/">Linux指令系统</a>
-    </h1>
-  
+        <p>[root@iZwz97tbgo9lkabnat2lo8Z ~]# yum install gcc<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# wget <a href="https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz</a></p>
+<a id="more"></a>
+<p>[root@iZwz97tbgo9lkabnat2lo8Z ~]# gunzip Python-3.6.5.tgz<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# tar -xvf Python-3.6.5.tar<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# cd Python-3.6.5<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# ./configure –prefix=/usr/local/python36 –enable-optimizations<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# make &amp;&amp; make install<br>… 配置环境变量 …<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# ln -s /usr/local/python36/bin/python3.6 /usr/bin/python3<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# python3 –version<br>Python 3.6.5<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# python3 -m pip install -U pip<br>[root@iZwz97tbgo9lkabnat2lo8Z ~]# pip3 –version</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/MySQL配置/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/MySQL配置/">MySQL配置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/Nginx服务器安装/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wwoming.github.io/2019/02/22/配置python环境/" data-id="cjsgvgxmo000894vifyomozla" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/Nginx服务器安装/">Nginx服务器</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/git的基本使用-指令/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/git的基本使用-指令/">git的基本使用(指令)</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gitbash上的各种类型环境及指令/">gitbash上的各种类型环境及指令</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/vim编辑器之神/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/vim编辑器之神/">vim编辑器之神</a>
-    </h1>
+    <a href="/2019/02/22/vim编辑器之神/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vim编辑器之神
+        
+      </div>
+    </a>
   
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/22/配置python环境/" class="archive-article-date">
-  <time datetime="2019-02-22T09:14:13.000Z" itemprop="datePublished">Feb 22</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/配置python环境/">配置python环境</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         
