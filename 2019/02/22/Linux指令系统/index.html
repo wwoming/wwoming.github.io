@@ -103,7 +103,7 @@
 <meta property="og:description" content="连接云服务器：1.连接服务器:    ssh  root@ip地址2.退出:  logoutLinux指令系统：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wwoming.github.io/2019/02/22/Linux指令系统/Linux-file-mode.png">
-<meta property="og:updated_time" content="2019-02-23T13:32:24.329Z">
+<meta property="og:updated_time" content="2019-02-25T01:28:15.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux指令系统">
 <meta name="twitter:description" content="连接云服务器：1.连接服务器:    ssh  root@ip地址2.退出:  logoutLinux指令系统：">
@@ -377,7 +377,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuming">
       <meta itemprop="description" content="第一个博客">
-      <meta itemprop="image" content="http://pn9wgvs6g.bkt.clouddn.com/avatar.jpg">
+      <meta itemprop="image" content="http://pnf5mme2r.bkt.clouddn.com/avatar.JPG">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -435,7 +435,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-23 21:32:24" itemprop="dateModified" datetime="2019-02-23T21:32:24+08:00">2019-02-23</time>
+                <time title="修改时间：2019-02-25 09:28:15" itemprop="dateModified" datetime="2019-02-25T09:28:15+08:00">2019-02-25</time>
               
             
           </span>
@@ -539,11 +539,11 @@
 <p>mv    文件名1  文件名2    - 将文件1中的内容移动到文件2中 ,并且删除文件1（文件重命名）<br>mv  文件1路径   文件2路径</p>
 <p>mv    文件名1  文件目录    - 将文件1移动到指定目录中<br>注意: mv指令不能加-r来操作目录</p>
 <p>(注意：cp/mv/rm 后面可以跟： -i询问  -f强制  -n不覆盖)</p>
-<p>mkdir  目录名        - 新建文件夹<br>mkdir -p a/b/c        - 按层级创建a,b,c三个文件夹<br>mkdir -p a/{b,c}/{d,e,f}    -同一层级常见多个</p>
+<p>mkdir  目录名        - 新建文件夹<br>mkdir -p a/b/c        - 按层级创建a,b,c三个文件夹<br>mkdir -p a/{b,c}/{d,e,f}    -同一层级创建多个</p>
 <p>rmdir  目录名        - 删除指定空目录</p>
 <p>7.history        - 显示历史指令记录<br>bashrc 配置显示时间：export  HISTTIMEFORMAT=”[%y‐%m‐%d_%T] “<br>修改bashrc 后使其生效:  source ~/.bashrc  或 .  .bashrc   </p>
-<p>6.链接<br>ln -s 源路径  目标路径        - 给源路径对应的文件在目标路径下创建一个软链接(可以看成是快捷键)(源路径是绝对路径) (掌握！)<br>ln 源路径  目标路径            - 给源路径对应的文件在目标路径下创建一个硬链接（了解）</p>
-<p>注意: 源文件不存在的时候，软件无效，硬链接变成普通文件</p>
+<p>6.链接<br>ln -s 源路径  目标路径        - 给源路径对应的文件在目标路径下创建一个软链接(可以看成是快捷键)(<strong>源路径是绝对路径) (掌握！</strong>)<br>ln 源路径  目标路径            - 给源路径对应的文件在目标路径下创建一个硬链接（了解）</p>
+<p>注意: 源文件不存在的时候，软连接无效，硬链接变成普通文件</p>
 <p>8.快捷键<br>ctr + f         - 前进一个字符<br>ctr + b        - 后退一个字符<br>ctr + a        - 回到行首<br>ctr + e         - 回到行尾<br>ctr + w        - 向左删除一个单词<br>ctr + u        - 向左删除全部<br>ctr + k        - 向右删除全部<br>ctr + y        - 粘贴上次删除的内容<br>ctr + l        - 清屏  </p>
 <p>二、进程相关指令(用得较少)<br>1.ps指令<br>ps                        - 进程状态<br>ps -aux  或者  ps ex            - 查看进程<br>ps -aux|grep 进程名        - 查看指定进程<br>ps grep  进程ID</p>
 <p>2.top指令<br>top                         - 动态监控进程<br>top  -p PID1,PID2,….        - 动态监控指定进程</p>
@@ -578,7 +578,7 @@ xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
 - 按 G 到全文结尾
 - 按 Q 退出  
 </code></pre><p>more [-N]  文件            - 和less差不多，这个是尽可能多，less是尽可能少的加载</p>
-<p>4.处理<br>sort                  - 排序  (cat 文件 |sort)<br>uniq                - 去重  (cat 文件 |uniq) - 只会去重相邻的重复是数据，一般结合sort一起使用:  |sort|uniq<br>awk ‘{print $N}’    - 打印第N列的内容(netstat -natp|awk ‘{print $4}’)</p>
+<p>4.处理<br>sort                  - 排序  (cat 文件 |sort)<br>uniq                - 去重  (cat 文件 |uniq) - 只会去重相邻的重复是数据，一般结合sort一起使用:  |sort|uniq<br>awk ‘{print $N}’    -  打印第N列的内容(netstat -natp|awk ‘{print $4,$3})’</p>
 <p>history |awk ‘{print $4}’ |sort |uniq ‐c | sort ‐rnk 1 | head ‐n 3           -获取历史指令中，使用最频繁的三个指令</p>
 <p>5.重定向<br>执行获取数据的指令  &gt; 文件  （将执行指定的结果存储到文件中 - 覆盖原文件中内容）<br>执行获取数据的指令 &gt;&gt; 文件   (将执行指定的结果存储到文件中 - 在原文件的最后追加)</p>
 <p>5.统计<br>wc -c(字符)/-w(单词)/-l(行)  文件</p>
@@ -631,7 +631,7 @@ xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
 <p>发送本地文件到远程（例如：Linux） -scp指令：<br>scp 文件 root@ip地址：服务器上保存被发送文件的路径</p>
 <p>从Linux上下载文件到本地<br>scp root@ip地址：服务器上保存被发送文件的路径 本地路径</p>
 <p>发送文件夹<br>scp -r 文件夹 root@ip地址：服务器上保存被发送文件的路径</p>
-<p>从Linux上下载文件夹到本地<br>scp root@ip地址：服务器上文件夹的路径 本地路径</p>
+<p>从Linux上下载文件夹到本地<br>scp -r root@ip地址：服务器上文件夹的路径 本地路径</p>
 
       
     </div>
@@ -726,7 +726,7 @@ xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://pn9wgvs6g.bkt.clouddn.com/avatar.jpg" alt="zhuming">
+              <img class="site-author-image" itemprop="image" src="http://pnf5mme2r.bkt.clouddn.com/avatar.JPG" alt="zhuming">
             
               <p class="site-author-name" itemprop="name">zhuming</p>
               <p class="site-description motion-element" itemprop="description">第一个博客</p>
