@@ -23,17 +23,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[vim编辑器之神]]></title>
-    <url>%2F2019%2F02%2F22%2Fvim%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E7%A5%9E%2F</url>
-    <content type="text"><![CDATA[vim编辑器之神配置vimrc配置在shell中可以通过 vim ~/.vimrc 或者 vim /etc/vimrc 打开vimrc文件对vim进行配置。在这个文件中可以进行很多和vim相关的配置，常用的如下（如果对其他配置感兴趣的可以自己百度）： 常用操作1.模式切换我们可以将vim分为命令模式、编辑模式和末行模式三种命令模式：进入vim的时候vim是处于命令模式状态下的，这个时候输入内容不会出现在编辑区 (最末什么都没有) 末行模式：在命令模式下输入冒号，让vim进入末行模式。在末行模式的冒号后面可以输入相关的一些指令进行相关操作 (最后有一个冒号) 编辑模式：在命令模式下按’i’进入编辑模式。在编辑模式下可以对文件内容进行编辑 (最后 –INSERT– 或者 –插入–) ####2.保存和退出在末行模式下输入相应的指令可以对编辑区的内容进行保存和退出vim界面w – 只保存(类似快捷键ctr+s)q – 退出（在编辑区的内容全部都保存的情况下才有效）wq – 保存并退出q! – 强制退出（不保存修改信息） ####3.光标操作以下光标操作都是在命令模式下输入的^(shift+6) – 移动到行首$(shift+4) – 移动到行尾G(shift+g) – 移动到文件末尾行号G – 移动到指定行,例如:30G, 让光标直接跳转到行号是30的那一行gg – 移动到文件开头 ####4.文本操作以下操作不带冒号的是在命令模式下输入，前面有冒号代码后面的内容是在末行模式下输入dd – 删除光标所在的行数字dd – 从光标所在行开始往后面开始删，删除指定数量行内容:%d – 删除所有 yy – 复制光标所在的行数字yy – 从光标所在行开始复制指定行数的内容p – 将复制的内容粘贴到光标所在的位置u – 撤销ctr+r – 反撤销 :%!sort – 对内容排序(将一行内容看出一个字符串，然后按字符串大小进行排序) :/查找对象[/gice] – 搜索匹配正则表达式的内容，按回车回到命令模式后按n往前查找，按N往后查找:/正则表达式[/参数] – 搜索匹配正则表达式的内容，按回车回到命令模式后按n往前查找，按N往后查找注意：正则表达式除了表示次数的符号前需要加\，别的和python是一样的，例如：12:/\d\&#123;2&#125; -&gt; 查找两个数字:/a\+ -&gt; 查找a出现一次或者多次 :1,$s/被替换对象/替换内容/参数 – 将正则表达式匹配到的内容替换成指定内容注意：参数可以没有 - g: 全局匹配 - i: 忽略大小写 - c: 替换时需要提示 - e: 忽略错误 想要了解更多命令，可以点击下方链接https://github.com/jackfrued/Python-100-Days/blob/master/Day31-35/%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.md]]></content>
-      <categories>
-        <category>环境和服务器配置教程</category>
-      </categories>
-      <tags>
-        <tag>vim编辑器之神</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[MySQL配置]]></title>
     <url>%2F2019%2F02%2F22%2FMySQL%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[下载MySQL源安装包: wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm 安装MySQL源: yum localinstall mysql57-community-release-el7-8.noarch.rpm 安装MySQL: yum install mysql-community-server 设置开启启动MySQL服务: systemctl enable mysqld 启动/重启MySQL服务：systemctl restart mysqld 查看MySQL初始密码：grep ‘A temporary password’ /var/log/mysqld.log 更改MySQL密码：mysqladmin -u root -p’旧密码’ password ‘新密码’这里更改密码出了问题，更改失败，这是因为密码太过简单的原因。有两个接解决方法： 方法一：把密码设置复杂点（这是最直接的方法） 方法二：关闭mysql密码强度验证(validate_password) 编辑配置文件：vim /etc/my.cnf， 增加这么一行validate_password=off 编辑后重启mysql服务：systemctl restart mysqld 设置mysql能够远程访问:a. 登录进MySQL: mysql -uroot -p密码 b. 增加一个用户给予访问权限: grant all privileges on *.* to &#39;root&#39;@&#39;ip地址&#39; identified by &#39;密码&#39; with grant option; c. 刷新权限：flush privileges;­]]></content>
@@ -61,6 +50,17 @@
     <content type="text"><![CDATA[git的使用 - 版本控制 1.代码托管平台github.comgitee.comcoding.net 2.git命令基本指令git init —— 新建git仓库git add 文件/文件夹 —— 将文件添加到缓存区中git add -A —— 将工作区中的所有内容都提交 git stutas ——— 查看git状态git commit -m ‘提交信息’ —— 将缓存区中的内容全部提交到git本地仓库中git commit -a -m ‘清空’ git log ——- 查看提交日志 git reset - - hard HEAD—— 让工作目录中的内容和仓库中的内容保持一致git reset –hard HEAD^ —— 回到上一个版本git reset - - hard 版本号 —— 回到指定的版本 git checkout 文件名 —— 从暂存区中恢复工作目录中的内容(让工作区中的指定文件，回到上次提交的时候的状态), 不能通过-A来恢复所有文件/ 1.没有本地仓库只有远程仓库(刚到公司，手头没有公司项目需要从公司的gitlab或者其他远程仓库上克隆到本地) 先cd到你打算放项目的目录下git clone - 将服务器上的项目(仓库)克隆 2.本地有项目，并且已经更新过版本。需要关联远程仓库 先在代码托管平台创建空的远程仓库(不要自动创建README) cd到本地仓库，执行： git remote add origin 仓库地址 //注意: 让本地已有的仓库和远程仓库关联的时候，远程仓库创建的时候不能添加README文件(创建空的仓库)git remote add origin 地址 关联远程仓库(只需要关联一次)git push [-u] origin master - 提交 (-u在第一次提交分之的时候才用) //如果创建远程仓库的时候仓库中有默认文件git pull —rebase origin master 分之管理： a.创建仓库会默认给我们创建一个master分之,这个分之一般作为提交和发布分之 b.开发一般会自己创建一个develop分之，用来开发和测试 c.多人协作的时候还可能根据不同的人或者(不同的功能)创建不同的分之，用来独立开发 常见分之： master, develop, 功能/人员分之 git branch [-a] - 查看分之git branch 分之名 - 创建分之git checkout 分支名 - 切换分之git checkout -b 分之名 - 切换并创建新的分之 git diff 分之1 分之2 - 查看两个分之之间的差异 git merge 分之名 - 让当前分之和指定分之进行合并 (让当前分之拥有指定分之的内容) 注意: 切换分之、push、pull，这些操作前要保证工作区是clean 练习：创建一个开发分之(develop),然后在创建两个开发者分之zhangsan和lisi; 然后在zhangsan的分之上添加一个文件夹(aaa)，文件夹中有一个文件(文件不能为空) 在lisi的分之上添加一个图片 最后将zhangsan和lisi分之都合并到develop中；然后再将develop合并到master上 怎么避免冲突： 不要发生多个分之对同一个文件在同一个版本下进行修改(和同伴确认和商量) ssh地址的使用 配置全局的用户信息(windows) git global config user.name “yuting”git global config user.email “yuting@163.com” //git bash git config –global user.name ‘yuting’ git config –global user.email ‘yuting@163.com’]]></content>
       <tags>
         <tag>gitbash上的指令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vim编辑器之神]]></title>
+    <url>%2F2019%2F02%2F22%2Fvim%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E7%A5%9E%2F</url>
+    <content type="text"><![CDATA[vim编辑器之神配置vimrc配置在shell中可以通过 vim ~/.vimrc 或者 vim /etc/vimrc 打开vimrc文件对vim进行配置。在这个文件中可以进行很多和vim相关的配置，常用的如下（如果对其他配置感兴趣的可以自己百度）： 常用操作1.模式切换我们可以将vim分为命令模式、编辑模式和末行模式三种命令模式：进入vim的时候vim是处于命令模式状态下的，这个时候输入内容不会出现在编辑区 (最末什么都没有) 末行模式：在命令模式下输入冒号，让vim进入末行模式。在末行模式的冒号后面可以输入相关的一些指令进行相关操作 (最后有一个冒号) 编辑模式：在命令模式下按’i’进入编辑模式。在编辑模式下可以对文件内容进行编辑 (最后 –INSERT– 或者 –插入–) ####2.保存和退出在末行模式下输入相应的指令可以对编辑区的内容进行保存和退出vim界面w – 只保存(类似快捷键ctr+s)q – 退出（在编辑区的内容全部都保存的情况下才有效）wq – 保存并退出q! – 强制退出（不保存修改信息） ####3.光标操作以下光标操作都是在命令模式下输入的^(shift+6) – 移动到行首$(shift+4) – 移动到行尾G(shift+g) – 移动到文件末尾行号G – 移动到指定行,例如:30G, 让光标直接跳转到行号是30的那一行gg – 移动到文件开头 ####4.文本操作以下操作不带冒号的是在命令模式下输入，前面有冒号代码后面的内容是在末行模式下输入dd – 删除光标所在的行数字dd – 从光标所在行开始往后面开始删，删除指定数量行内容:%d – 删除所有 yy – 复制光标所在的行数字yy – 从光标所在行开始复制指定行数的内容p – 将复制的内容粘贴到光标所在的位置u – 撤销ctr+r – 反撤销 :%!sort – 对内容排序(将一行内容看出一个字符串，然后按字符串大小进行排序) :/查找对象[/gice] – 搜索匹配正则表达式的内容，按回车回到命令模式后按n往前查找，按N往后查找:/正则表达式[/参数] – 搜索匹配正则表达式的内容，按回车回到命令模式后按n往前查找，按N往后查找注意：正则表达式除了表示次数的符号前需要加\，别的和python是一样的，例如：12:/\d\&#123;2&#125; -&gt; 查找两个数字:/a\+ -&gt; 查找a出现一次或者多次 :1,$s/被替换对象/替换内容/参数 – 将正则表达式匹配到的内容替换成指定内容注意：参数可以没有 - g: 全局匹配 - i: 忽略大小写 - c: 替换时需要提示 - e: 忽略错误 想要了解更多命令，可以点击下方链接https://github.com/jackfrued/Python-100-Days/blob/master/Day31-35/%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.md]]></content>
+      <categories>
+        <category>环境和服务器配置教程</category>
+      </categories>
+      <tags>
+        <tag>vim编辑器之神</tag>
       </tags>
   </entry>
   <entry>
