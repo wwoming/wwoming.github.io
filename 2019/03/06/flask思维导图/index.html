@@ -97,14 +97,14 @@
   <meta name="description" content="flask环境使用virtualenv创建">
 <meta name="keywords" content="flask基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flask入门">
-<meta property="og:url" content="http://wwoming.github.io/2019/03/04/flask思维导图/index.html">
+<meta property="og:title" content="flask入门(一)">
+<meta property="og:url" content="http://wwoming.github.io/2019/03/06/flask思维导图/index.html">
 <meta property="og:site_name" content="womingya">
 <meta property="og:description" content="flask环境使用virtualenv创建">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T13:14:47.420Z">
+<meta property="og:updated_time" content="2019-03-06T11:50:18.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flask入门">
+<meta name="twitter:title" content="flask入门(一)">
 <meta name="twitter:description" content="flask环境使用virtualenv创建">
 
 
@@ -112,7 +112,7 @@
 
 
 
-  <link rel="canonical" href="http://wwoming.github.io/2019/03/04/flask思维导图/">
+  <link rel="canonical" href="http://wwoming.github.io/2019/03/06/flask思维导图/">
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>flask入门 | womingya</title>
+  <title>flask入门(一) | womingya</title>
   
 
 
@@ -370,7 +370,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wwoming.github.io/2019/03/04/flask思维导图/">
+    <link itemprop="mainEntityOfPage" href="http://wwoming.github.io/2019/03/06/flask思维导图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuming">
@@ -387,7 +387,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">flask入门
+          <h1 class="post-title" itemprop="name headline">flask入门(一)
 
               
             
@@ -416,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2019-03-04 21:13:14 / 修改时间：21:14:47" itemprop="dateCreated datePublished" datetime="2019-03-04T21:13:14+08:00">2019-03-04</time>
+              <time title="创建时间：2019-03-06 19:13:14 / 修改时间：19:50:18" itemprop="dateCreated datePublished" datetime="2019-03-06T19:13:14+08:00">2019-03-06</time>
             
 
             
@@ -472,7 +472,7 @@
                   <span class="post-meta-item-text">post.wordcount&#58;</span>
                 
                 <span title="post.wordcount">
-                  540 字
+                  1.1k 字
                 </span>
               
 
@@ -488,7 +488,7 @@
                   <span class="post-meta-item-text">post.min2read &asymp;</span>
                 
                 <span title="post.min2read">
-                  2 分钟 
+                  4 分钟 
                 </span>
               
             </div>
@@ -531,7 +531,7 @@
 <p>app.run()<br>在Terminal窗口，虚拟环境下输入python 要执行的文件名.py</p>
 <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><h3 id="flask自带启动方式：app-run-host-’ip地址’-port-端口号-debug-True-False"><a href="#flask自带启动方式：app-run-host-’ip地址’-port-端口号-debug-True-False" class="headerlink" title="flask自带启动方式：app.run(host=’ip地址’, port=端口号, debug=True/False)"></a>flask自带启动方式：app.run(host=’ip地址’, port=端口号, debug=True/False)</h3><h3 id="使用flask-script库"><a href="#使用flask-script库" class="headerlink" title="使用flask-script库"></a>使用flask-script库</h3><ul>
 <li>pip install flask-script</li>
-<li>from flask-script import Manager    manager = Manager(app)    manager.run()</li>
+<li>from flask_script import Manager    manager = Manager(app)    manager.run()</li>
 <li>在Terminal启动命令：python xxx.py  runserver -p -h -d</li>
 </ul>
 <h2 id="路由规则"><a href="#路由规则" class="headerlink" title="路由规则"></a>路由规则</h2><h3 id="定义格式：-lt-转换器-类型-：参数名-gt"><a href="#定义格式：-lt-转换器-类型-：参数名-gt" class="headerlink" title="定义格式：&lt;转换器(类型)：参数名&gt;"></a>定义格式：&lt;转换器(类型)：参数名&gt;</h3><h3 id="转换器"><a href="#转换器" class="headerlink" title="转换器"></a>转换器</h3><ul>
@@ -557,8 +557,59 @@
 </ul>
 </li>
 </ul>
-<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><p><em>XMind: ZEN - Trial Version</em></p>
-
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><ul>
+<li>导包：from flask import make_response</li>
+<li>使用：make_response(‘响应内容’, 响应状态码)</li>
+</ul>
+<h2 id="cookie与session"><a href="#cookie与session" class="headerlink" title="cookie与session"></a>cookie与session</h2><h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><ul>
+<li>产生场景：由于HTTP无状态协议，cookie的使用，保存一个令牌(标识符)用于标识用户的登录状态</li>
+<li>令牌的产生：在登录时向cookie中设置的</li>
+<li>设置令牌：res = make_response()<br>res.set_cookie(‘key’, ‘value’, max_age)</li>
+<li>cookie不能跨浏览器</li>
+<li>cookie中设置的参数有字节限制，不能无限的存储参数</li>
+<li>删除：res = make_response()<br>res.delete_cookie(‘key’)</li>
+</ul>
+<h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><ul>
+<li><p>flask默认存储session的形式，将session数据保存在客户端</p>
+<ul>
+<li>导包：from flask import session</li>
+<li>使用：session[‘key’]=’value’</li>
+</ul>
+</li>
+<li><p>使用flask-session库，将session数据保存在服务器端</p>
+<ul>
+<li>pip install redis<br>pip install flask-session</li>
+<li>app.config[‘SESSION_TYPE’] = ‘redis’</li>
+<li>app.config[‘SESSION_REDIS’] = redis.Redis(host=’’, port=6379)</li>
+<li>加密复杂程度,加密，加密复杂程度和设值有关<br>app.secret_key = ‘value’</li>
+<li>from flask_session import Session<br>Session(app)</li>
+</ul>
+</li>
+</ul>
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><ul>
+<li>外层函数嵌套内层函数</li>
+<li>外层函数返回内层函数</li>
+<li>内层函数调用外层函数的参数</li>
+</ul>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>外层函数传入的参数即为被装饰的函数</li>
+<li>from functools import wraps<br>@wraps(func)</li>
+</ul>
+<h2 id="蓝图"><a href="#蓝图" class="headerlink" title="蓝图"></a>蓝图</h2><h3 id="产生背景：管理路由地址"><a href="#产生背景：管理路由地址" class="headerlink" title="产生背景：管理路由地址"></a>产生背景：管理路由地址</h3><h3 id="安装：pip-install-flask-blueprint"><a href="#安装：pip-install-flask-blueprint" class="headerlink" title="安装：pip install flask-blueprint"></a>安装：pip install flask-blueprint</h3><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>第一步：blue = Blueprint(‘first’, <strong>name</strong>)<br>@blue.route(‘路由地址’)</li>
+<li>第二步：flask对象app.register_blueprint(blueprint=blue)</li>
+</ul>
+<h3 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h3><ul>
+<li>有参跳转<ul>
+<li>redirect(url_for(‘生成蓝图的第一个参数.跳转的函数名称’, 参数名=值,参数名2=值2))</li>
+</ul>
+</li>
+<li>无参跳转<ul>
+<li>redirect(url_for(‘生成蓝图的第一个参数.跳转的函数名称’))</li>
+</ul>
+</li>
+</ul>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">### 父模板</span><br><span class="line"></span><br><span class="line">- 定义网站模板的大体框架，可以被动态填充内容的block块</span><br><span class="line">  - block块定义：</span><br><span class="line">    &#123;% block name %&#125;</span><br><span class="line">    &#123;% endblock %\&#125;- 注意：block名称不能取同名</span><br><span class="line">    </span><br><span class="line">### 子模板</span><br><span class="line"></span><br><span class="line">- 继承父模板：</span><br><span class="line">  &#123;%  extends &apos;父模板&apos; %\&#125;- 动态可选择性的填充父模板中定义的block块，使用&#123;% block name %\&#125;态内容&#123;% endblock %\&#125;</span><br><span class="line">### 语法</span><br><span class="line"></span><br><span class="line">- 解析标签：&#123;% 标签名 %\&#125; &#123;% end标签名 %\&#125;  - for：&#123;% for a in [] %\&#125; &#123;% endfor %\&#125;  - if：[% if 判断条件 %\&#125; &#123;% endif %\&#125;  - block：&#123;% block name %\&#125; &#123;% endblock %\&#125;- 解析变量：&#123;&#123; 变量名 \&#125;&#125;  - loop：变量</span><br><span class="line">    - loop.index0：从0开始</span><br><span class="line">    - loop.revindex：逆序到1结束</span><br><span class="line">    - loop.revindex0：逆序到0结束</span><br><span class="line">    - loop.first：第一次循环返回True</span><br><span class="line">    - loop.last：最后一次循环返回True</span><br><span class="line">- 注解：&#123;# 注解内容 #\&#125;- 过滤器</span><br><span class="line">  - 写法：&#123;&#123; 变量 | 过滤器 \&#125;&#125;  - safe</span><br><span class="line">  - length</span><br><span class="line">  - upper</span><br><span class="line">  - ......</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -814,7 +865,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#flask"><span class="nav-number">1.</span> <span class="nav-text">flask</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.1.</span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用virtualenv创建"><span class="nav-number">1.1.1.</span> <span class="nav-text">使用virtualenv创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用pycharm创建"><span class="nav-number">1.1.2.</span> <span class="nav-text">使用pycharm创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flask安装"><span class="nav-number">1.2.</span> <span class="nav-text">flask安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装：先激活环境，再执行pip-install-flask"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装：先激活环境，再执行pip install flask</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pip使用"><span class="nav-number">1.3.</span> <span class="nav-text">pip使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询安装的库：pip-list-pip-freeze"><span class="nav-number">1.3.1.</span> <span class="nav-text">查询安装的库：pip list / pip freeze</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装内容：pip-install-xxx"><span class="nav-number">1.3.2.</span> <span class="nav-text">安装内容：pip install xxx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同时安装多个文件：pip-install-r-requirement-txt-创建一个requirement-txt文件，在里面编辑要安装的文件，一个文件占一行"><span class="nav-number">1.3.3.</span> <span class="nav-text">同时安装多个文件：pip install -r requirement.txt (创建一个requirement.txt文件，在里面编辑要安装的文件，一个文件占一行)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flask使用"><span class="nav-number">1.4.</span> <span class="nav-text">flask使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#from-flask-import-Flask"><span class="nav-number">1.4.1.</span> <span class="nav-text">from flask import Flask</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-number">1.5.</span> <span class="nav-text">启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flask自带启动方式：app-run-host-’ip地址’-port-端口号-debug-True-False"><span class="nav-number">1.5.1.</span> <span class="nav-text">flask自带启动方式：app.run(host=’ip地址’, port=端口号, debug=True/False)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用flask-script库"><span class="nav-number">1.5.2.</span> <span class="nav-text">使用flask-script库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由规则"><span class="nav-number">1.6.</span> <span class="nav-text">路由规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义格式：-lt-转换器-类型-：参数名-gt"><span class="nav-number">1.6.1.</span> <span class="nav-text">定义格式：&lt;转换器(类型)：参数名&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换器"><span class="nav-number">1.6.2.</span> <span class="nav-text">转换器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：string-name和是一样的"><span class="nav-number">1.6.3.</span> <span class="nav-text">注意：string:name和是一样的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求与响应"><span class="nav-number">1.7.</span> <span class="nav-text">请求与响应</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求"><span class="nav-number">1.7.1.</span> <span class="nav-text">请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应"><span class="nav-number">1.7.2.</span> <span class="nav-text">响应</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#flask"><span class="nav-number">1.</span> <span class="nav-text">flask</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.1.</span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用virtualenv创建"><span class="nav-number">1.1.1.</span> <span class="nav-text">使用virtualenv创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用pycharm创建"><span class="nav-number">1.1.2.</span> <span class="nav-text">使用pycharm创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flask安装"><span class="nav-number">1.2.</span> <span class="nav-text">flask安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装：先激活环境，再执行pip-install-flask"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装：先激活环境，再执行pip install flask</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pip使用"><span class="nav-number">1.3.</span> <span class="nav-text">pip使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询安装的库：pip-list-pip-freeze"><span class="nav-number">1.3.1.</span> <span class="nav-text">查询安装的库：pip list / pip freeze</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装内容：pip-install-xxx"><span class="nav-number">1.3.2.</span> <span class="nav-text">安装内容：pip install xxx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同时安装多个文件：pip-install-r-requirement-txt-创建一个requirement-txt文件，在里面编辑要安装的文件，一个文件占一行"><span class="nav-number">1.3.3.</span> <span class="nav-text">同时安装多个文件：pip install -r requirement.txt (创建一个requirement.txt文件，在里面编辑要安装的文件，一个文件占一行)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flask使用"><span class="nav-number">1.4.</span> <span class="nav-text">flask使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#from-flask-import-Flask"><span class="nav-number">1.4.1.</span> <span class="nav-text">from flask import Flask</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-number">1.5.</span> <span class="nav-text">启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flask自带启动方式：app-run-host-’ip地址’-port-端口号-debug-True-False"><span class="nav-number">1.5.1.</span> <span class="nav-text">flask自带启动方式：app.run(host=’ip地址’, port=端口号, debug=True/False)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用flask-script库"><span class="nav-number">1.5.2.</span> <span class="nav-text">使用flask-script库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由规则"><span class="nav-number">1.6.</span> <span class="nav-text">路由规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义格式：-lt-转换器-类型-：参数名-gt"><span class="nav-number">1.6.1.</span> <span class="nav-text">定义格式：&lt;转换器(类型)：参数名&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换器"><span class="nav-number">1.6.2.</span> <span class="nav-text">转换器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：string-name和是一样的"><span class="nav-number">1.6.3.</span> <span class="nav-text">注意：string:name和是一样的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求与响应"><span class="nav-number">1.7.</span> <span class="nav-text">请求与响应</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求"><span class="nav-number">1.7.1.</span> <span class="nav-text">请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应"><span class="nav-number">1.7.2.</span> <span class="nav-text">响应</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie与session"><span class="nav-number">1.8.</span> <span class="nav-text">cookie与session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">1.8.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">1.8.2.</span> <span class="nav-text">session</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰器"><span class="nav-number">1.9.</span> <span class="nav-text">装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件"><span class="nav-number">1.9.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.9.2.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蓝图"><span class="nav-number">1.10.</span> <span class="nav-text">蓝图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#产生背景：管理路由地址"><span class="nav-number">1.10.1.</span> <span class="nav-text">产生背景：管理路由地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装：pip-install-flask-blueprint"><span class="nav-number">1.10.2.</span> <span class="nav-text">安装：pip install flask-blueprint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">1.10.3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转"><span class="nav-number">1.10.4.</span> <span class="nav-text">跳转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板"><span class="nav-number">1.11.</span> <span class="nav-text">模板</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -873,7 +924,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">12.9k</span> 字
+      博客全站共： <span class="post-count">13.5k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->
@@ -884,7 +935,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共12.9k字</span>
+  <span class="post-count">博客全站共13.5k字</span>
 </div>
 -->
 
